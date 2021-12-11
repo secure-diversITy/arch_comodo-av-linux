@@ -1,0 +1,33 @@
+--- Makefile	2021-12-10 09:54:40.083526498 +0100
++++ src/redirfs/src/Makefile	2021-12-10 09:56:25.817824052 +0100
+@@ -7,7 +7,7 @@
+ 
+ default: all
+ 
+-BLD_DIR ?= $(PWD)/build
++BLD_DIR ?= $(shell pwd)/build
+ 
+ # linux kernel module targets
+ 
+@@ -16,17 +16,17 @@
+ 
+ # module include directories
+ 
+-MINC := -I$(PWD)/redirfs
++MINC := -I$(shell pwd)/redirfs
+ 
+ modules:
+-	$(MAKE) -C $(KDIR) M=$(PWD) EXTRA_CFLAGS=$(MINC) modules
++	$(MAKE) -C $(KDIR) M=$(shell pwd) EXTRA_CFLAGS=$(MINC) modules
+ 
+ modules_debug:
+-	$(MAKE) -C $(KDIR) M=$(PWD) EXTRA_CFLAGS='$(MINC) -v -O1 -g -DRFS_DBG -DDEBUG' modules
++	$(MAKE) -C $(KDIR) M=$(shell pwd) EXTRA_CFLAGS='$(MINC) -v -O1 -g -DRFS_DBG -DDEBUG' modules
+ 
+ modules_install: modules
+ 	mkdir -p $(MDIR)
+-	$(MAKE) -C $(KDIR) M=$(PWD) EXTRA_CFLAGS=$(MINC) INSTALL_MOD_PATH=$(MDIR) modules_install
++	$(MAKE) -C $(KDIR) M=$(shell pwd) EXTRA_CFLAGS=$(MINC) INSTALL_MOD_PATH= modules_install
+ 
+ modules_uninstall:
+ 	rm -rf $(MDIR)

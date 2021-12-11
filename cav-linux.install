@@ -1,0 +1,14 @@
+post_install(){
+    sh /opt/COMODO/pkgscripts/preinst
+    sh /opt/COMODO/pkgscripts/postinst
+    #sh /opt/COMODO/post_setup.sh
+}
+
+post_upgrade(){
+   post_install 
+}
+
+post_remove(){
+    rm -rf /usr/local/Trolltech/Qt-4.*.*-Comodo
+    #rm /etc/init.d/cmdmgd /etc/init.d/cmdavd 
+}

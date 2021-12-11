@@ -1,0 +1,40 @@
+--- a/pkg/cav-linux-dkms/opt/COMODO/load_cmdagent.sh	2013-02-25 09:50:48.000000000 +0100
++++ b/pkg/cav-linux-dkms/opt/COMODO/load_cmdagent.sh	2021-12-11 12:21:45.494161051 +0100
+@@ -36,7 +36,7 @@
+ fi
+ 
+ FOUND=0
+-for TOS in Red Fedora SUSE Debian Ubuntu SliTaz Mint
++for TOS in Red Fedora SUSE Debian Ubuntu SliTaz Mint Manjaro Arch
+ do
+ 	if [ $FOUND -eq 0 ]
+ 	then
+@@ -58,10 +58,7 @@
+ Debian|Ubuntu|Mint)
+ 	. /lib/lsb/init-functions
+ 	;;
+-SliTaz)
+-	;;
+ *)
+-	. /etc/init.d/functions
+ 	;;
+ esac
+ 
+@@ -95,7 +92,7 @@
+ 			;;
+ 		*)
+ 			cd $CHGDIR
+-			daemon $PROG_NAME
++			$PROG_NAME
+ 			;;
+ 		esac 
+        
+@@ -126,7 +123,7 @@
+ 			killproc $PROG_NAME
+ 			rc_status -v
+ 			;;
+-		Debian|Ubuntu|Mint)
++		Debian|Ubuntu|Mint|Manjaro|Arch)
+ 			pkill -KILL cmdagent >/dev/null 2>&1
+ 			;;
+ 		SliTaz)
