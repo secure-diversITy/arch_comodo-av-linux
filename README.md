@@ -1,6 +1,6 @@
 # AUR pkg for Arch & Manjaro
 
-Comodo Antivirus for Linux - is that needed? no. yes. who knows. sometimes you just need to have a AV scanner nearby and COMODO is the only free one available atm.
+Comodo Antivirus for Linux - is that needed? no. yes. who knows. sometimes you just need to have a AV scanner nearby and besides ClamAV (which does not provide on-access/realtime scanning) COMODO is the only free one available atm.
 
 Comodo AV was not developed anymore since 2015 (or so) but it seems they're back (at least they promoting their solution as CAV Linux 2022).
 
